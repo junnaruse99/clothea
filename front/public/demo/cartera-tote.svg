@@ -13,5 +13,5 @@
   <text x="500" y="620" font-family="Georgia, serif" font-size="20" fill="rgba(255,255,255,0.45)">&#10022;</text>
   <path d="M270 300 c0 -55 60 -55 60 0" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="14"/><path d="M245 300 l110 0 20 190 c-50 16 -100 16 -150 0 z" fill="rgba(255,255,255,0.42)"/>
   <text x="300" y="700" font-family="Georgia, serif" font-size="34" font-style="italic" text-anchor="middle" fill="#ffffff">Cartera Tote</text>
-  <text x="300" y="745" font-family="Georgia, serif" font-size="18" letter-spacing="6" text-anchor="middle" fill="#ffffff" opacity="0.75">CLOTHEA</text>
+  <text x="300" y="745" font-family="Georgia, serif" font-size="18" letter-spacing="6" text-anchor="middle" fill="#ffffff" opacity="0.75">HEY HEY!</text>
 </svg>

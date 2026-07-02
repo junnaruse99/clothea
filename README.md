@@ -1,4 +1,4 @@
-# Clothea 🌸
+# Hey Hey! 🌸 (repo: clothea)
 
 Tienda online de **ropa femenina asequible en Lima, Perú** — prototipo funcional (MVP).
 

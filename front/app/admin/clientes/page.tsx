@@ -44,7 +44,7 @@ export default function AdminCustomersPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "clientes-clothea.csv";
+    a.download = "clientes-heyhey.csv";
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -55,7 +55,7 @@ export default function AdminCustomersPage() {
     return (
       <p className="py-12 text-center text-ink-soft">
         Aún no hay clientes. Se registran automáticamente con cada compra y
-        cuando se unen al Club Clothea.
+        cuando se unen al Club Hey Hey!
       </p>
     );
   }

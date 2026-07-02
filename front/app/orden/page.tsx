@@ -23,7 +23,7 @@ function OrderContent() {
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState("");
 
-  // Club Clothea: captura de datos para campañas y promociones
+  // Club Hey Hey!: captura de datos para campañas y promociones
   const [birthday, setBirthday] = useState("");
   const [wantsPromos, setWantsPromos] = useState(true);
   const [clubStatus, setClubStatus] = useState<"idle" | "sending" | "done">(
@@ -128,7 +128,7 @@ function OrderContent() {
           </div>
         </div>
 
-        {/* Club Clothea: cartera de clientes para campañas */}
+        {/* Club Hey Hey!: cartera de clientes para campañas */}
         <div
           className="animate-fade-up mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-blush via-white to-lilac-soft p-8 shadow-lg shadow-lilac/10 ring-1 ring-sand"
           style={{ animationDelay: "0.2s" }}
@@ -137,7 +137,7 @@ function OrderContent() {
             <div className="py-4 text-center">
               <span className="text-4xl">💌</span>
               <h2 className="mt-3 font-display text-2xl font-bold">
-                ¡Ya eres parte del Club Clothea!
+                ¡Ya eres parte del club!
               </h2>
               <p className="mt-2 text-sm text-ink-soft">
                 Te avisaremos primero de ofertas, novedades y sorpresas de
@@ -147,7 +147,7 @@ function OrderContent() {
           ) : (
             <>
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-lilac">
-                Club Clothea
+                Club Hey Hey!
               </p>
               <h2 className="mt-2 font-display text-2xl font-bold">
                 Un regalito antes de irte,{" "}
