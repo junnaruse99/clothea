@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf6f1;
+  --color-sand: #f1e8dd;
+  --color-blush: #f5e3e0;
+  --color-rose: #a64d63;
+  --color-rose-dark: #8a3d51;
+  --color-terracotta: #c97b5d;
+  --color-ink: #322d29;
+  --color-ink-soft: #6f6660;
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Scrollbar sutil para las categorías en móvil */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
