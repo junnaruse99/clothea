@@ -51,6 +51,23 @@ create table if not exists orders (
   created_at timestamptz not null default now()
 );
 
+-- Cartera de clientes para campañas y promociones
+create table if not exists customers (
+  id uuid primary key default gen_random_uuid(),
+  name text not null default '',
+  email text not null unique,
+  phone text not null default '',
+  district_id text references districts (id),
+  birthday date,
+  accepts_marketing boolean not null default false,
+  orders_count integer not null default 0,
+  total_spent numeric(10, 2) not null default 0,
+  created_at timestamptz not null default now(),
+  last_order_at timestamptz
+);
+
+alter table customers enable row level security;
+
 -- El API usa la service role key (bypassa RLS). Se activa RLS para que la
 -- anon key no exponga nada si alguien la usa directo contra la base.
 alter table categories enable row level security;

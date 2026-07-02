@@ -49,6 +49,12 @@ http://localhost:3000/admin (clave por defecto: `clothea-admin`).
 - Carrito persistente (localStorage)
 - Checkout con datos de entrega y **costo de delivery calculado por distancia**
 - Pasarela de pago *mock* que confirma la orden y descuenta stock
+- **Club Clothea**: en la confirmación de compra (y en el footer) se capturan
+  datos del cliente — cumpleaños y consentimiento de marketing — para armar la
+  cartera de clientes y contactarlos con campañas y promociones
+- Diseño con paleta empolvada (rosa, lila, champagne) y animaciones: hero con
+  destellos y blobs flotantes, marquee, aparición en cascada al hacer scroll,
+  micro-interacciones y pétalos animados en la confirmación
 
 **Panel admin** (`/admin`, protegido por clave)
 
@@ -56,6 +62,9 @@ http://localhost:3000/admin (clave por defecto: `clothea-admin`).
   precio de oferta, tallas con cantidades, visible/oculto y **subida de fotos**
 - Configuración del algoritmo de delivery con vista previa de tarifas por distrito
 - Listado de órdenes con cliente, items y totales
+- **Cartera de clientes**: cada compra registra/actualiza al cliente
+  (compras acumuladas, gasto total, última compra) y el Club añade cumpleaños
+  y opt-in de promociones; exportable a CSV para campañas
 
 ## Algoritmo de delivery (personalizable)
 
@@ -81,7 +90,8 @@ Para cambiar la fórmula misma, edita `back/src/delivery.ts`.
 | POST   | `/api/orders`                | Crea orden + sesión de pago              |
 | POST   | `/api/orders/:id/pay`        | Confirma pago (mock) y descuenta stock   |
 | GET    | `/api/orders/:id`            | Detalle de orden                         |
-| \*     | `/api/admin/...`             | CRUD productos, config delivery, órdenes y subida de fotos (header `x-admin-key`) |
+| POST   | `/api/customers/subscribe`   | Alta en el Club Clothea (opt-in de marketing) |
+| \*     | `/api/admin/...`             | CRUD productos, config delivery, órdenes, clientes y subida de fotos (header `x-admin-key`) |
 
 ## Rutas de crecimiento previstas
 

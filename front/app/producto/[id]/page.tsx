@@ -78,8 +78,8 @@ export default function ProductPage({
 
       <div className="mt-6 grid gap-10 md:grid-cols-2">
         {/* Galería */}
-        <div>
-          <div className="overflow-hidden rounded-2xl bg-sand ring-1 ring-sand">
+        <div className="animate-fade-up">
+          <div className="overflow-hidden rounded-3xl bg-blush ring-1 ring-sand">
             {product.photos[photoIdx] && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -108,7 +108,7 @@ export default function ProductPage({
         </div>
 
         {/* Información */}
-        <div>
+        <div className="animate-fade-up" style={{ animationDelay: "0.15s" }}>
           <p className="text-xs uppercase tracking-[0.3em] text-ink-soft">
             {product.code}
           </p>

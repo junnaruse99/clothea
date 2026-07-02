@@ -141,6 +141,15 @@ ordersRouter.post("/:id/pay", async (req, res, next) => {
     }
     await store.decrementStock(order.items);
     const updated = await store.updateOrderStatus(order.id, "paid");
+    // Alimenta la cartera de clientes con cada compra (sin consentimiento de
+    // marketing todavía; ese se pide explícitamente en la confirmación).
+    await store.upsertCustomer({
+      email: order.customer.email,
+      name: order.customer.name,
+      phone: order.customer.phone,
+      districtId: order.customer.districtId,
+      orderTotal: order.total,
+    });
     res.json(updated);
   } catch (err) {
     next(err);

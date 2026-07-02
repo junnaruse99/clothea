@@ -159,6 +159,17 @@ adminRouter.put("/delivery-config", async (req, res, next) => {
 });
 
 // ---------------------------------------------------------------------------
+// Cartera de clientes
+// ---------------------------------------------------------------------------
+adminRouter.get("/customers", async (_req, res, next) => {
+  try {
+    res.json(await getStore().listCustomers());
+  } catch (err) {
+    next(err);
+  }
+});
+
+// ---------------------------------------------------------------------------
 // Órdenes
 // ---------------------------------------------------------------------------
 adminRouter.get("/orders", async (_req, res, next) => {

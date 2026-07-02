@@ -1,6 +1,8 @@
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import {
   Category,
+  Customer,
+  CustomerUpsert,
   DeliveryConfig,
   District,
   Order,
@@ -24,6 +26,36 @@ interface ProductRow {
   variants: { size: string; quantity: number }[];
   active: boolean;
   created_at: string;
+}
+
+interface CustomerRow {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  district_id: string | null;
+  birthday: string | null;
+  accepts_marketing: boolean;
+  orders_count: number;
+  total_spent: number;
+  created_at: string;
+  last_order_at: string | null;
+}
+
+function rowToCustomer(row: CustomerRow): Customer {
+  return {
+    id: row.id,
+    name: row.name,
+    email: row.email,
+    phone: row.phone,
+    districtId: row.district_id,
+    birthday: row.birthday,
+    acceptsMarketing: row.accepts_marketing,
+    ordersCount: row.orders_count,
+    totalSpent: Number(row.total_spent),
+    createdAt: row.created_at,
+    lastOrderAt: row.last_order_at,
+  };
 }
 
 interface OrderRow {
@@ -253,6 +285,69 @@ export class SupabaseStore implements Store {
       .order("created_at", { ascending: false });
     if (error) throw error;
     return (data as OrderRow[]).map(rowToOrder);
+  }
+
+  async upsertCustomer(input: CustomerUpsert): Promise<Customer> {
+    const email = input.email.trim().toLowerCase();
+    const now = new Date().toISOString();
+    const { data: existing, error: selectError } = await this.client
+      .from("customers")
+      .select("*")
+      .eq("email", email)
+      .maybeSingle();
+    if (selectError) throw selectError;
+
+    if (!existing) {
+      const { data, error } = await this.client
+        .from("customers")
+        .insert({
+          name: input.name ?? "",
+          email,
+          phone: input.phone ?? "",
+          district_id: input.districtId ?? null,
+          birthday: input.birthday ?? null,
+          accepts_marketing: input.acceptsMarketing ?? false,
+          orders_count: input.orderTotal !== undefined ? 1 : 0,
+          total_spent: input.orderTotal ?? 0,
+          last_order_at: input.orderTotal !== undefined ? now : null,
+        })
+        .select()
+        .single();
+      if (error) throw error;
+      return rowToCustomer(data as CustomerRow);
+    }
+
+    const row = existing as CustomerRow;
+    const patch: Partial<CustomerRow> = {};
+    if (input.name) patch.name = input.name;
+    if (input.phone) patch.phone = input.phone;
+    if (input.districtId) patch.district_id = input.districtId;
+    if (input.birthday) patch.birthday = input.birthday;
+    // el consentimiento solo se activa, nunca se apaga silenciosamente
+    if (input.acceptsMarketing) patch.accepts_marketing = true;
+    if (input.orderTotal !== undefined) {
+      patch.orders_count = row.orders_count + 1;
+      patch.total_spent =
+        Math.round((Number(row.total_spent) + input.orderTotal) * 100) / 100;
+      patch.last_order_at = now;
+    }
+    const { data, error } = await this.client
+      .from("customers")
+      .update(patch)
+      .eq("id", row.id)
+      .select()
+      .single();
+    if (error) throw error;
+    return rowToCustomer(data as CustomerRow);
+  }
+
+  async listCustomers(): Promise<Customer[]> {
+    const { data, error } = await this.client
+      .from("customers")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    return (data as CustomerRow[]).map(rowToCustomer);
   }
 
   async decrementStock(

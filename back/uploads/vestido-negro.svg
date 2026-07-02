@@ -1,15 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#52525b"/>
-      <stop offset="1" stop-color="#18181b"/>
+      <stop offset="0" stop-color="#6e5d6b"/>
+      <stop offset="1" stop-color="#3d3240"/>
     </linearGradient>
   </defs>
   <rect width="600" height="800" fill="url(#bg)"/>
-  <circle cx="300" cy="340" r="210" fill="rgba(255,255,255,0.14)"/>
-  <circle cx="490" cy="120" r="90" fill="rgba(255,255,255,0.10)"/>
-  <circle cx="90" cy="640" r="120" fill="rgba(255,255,255,0.10)"/>
-  <path d="M270 180 l30 40 l30 -40 l25 15 -20 55 15 25 c20 90 30 160 25 240 -50 18 -110 18 -160 0 -5 -80 5 -150 25 -240 l15 -25 -20 -55 z" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="300" cy="340" r="210" fill="rgba(255,255,255,0.16)"/>
+  <circle cx="490" cy="120" r="90" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="90" cy="640" r="120" fill="rgba(255,255,255,0.12)"/>
+  <text x="88" y="120" font-family="Georgia, serif" font-size="26" fill="rgba(255,255,255,0.55)">&#10047;</text>
+  <text x="500" y="620" font-family="Georgia, serif" font-size="20" fill="rgba(255,255,255,0.45)">&#10022;</text>
+  <path d="M270 180 l30 40 l30 -40 l25 15 -20 55 15 25 c20 90 30 160 25 240 -50 18 -110 18 -160 0 -5 -80 5 -150 25 -240 l15 -25 -20 -55 z" fill="rgba(255,255,255,0.5)"/>
   <text x="300" y="700" font-family="Georgia, serif" font-size="34" font-style="italic" text-anchor="middle" fill="#ffffff">Vestido Negro</text>
   <text x="300" y="745" font-family="Georgia, serif" font-size="18" letter-spacing="6" text-anchor="middle" fill="#ffffff" opacity="0.75">CLOTHEA</text>
 </svg>

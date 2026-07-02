@@ -1,6 +1,8 @@
 import { randomUUID } from "crypto";
 import {
   Category,
+  Customer,
+  CustomerUpsert,
   DeliveryConfig,
   District,
   Order,
@@ -25,6 +27,7 @@ export class MemoryStore implements Store {
   private districts: District[] = [...seedDistricts];
   private deliveryConfig: DeliveryConfig = { ...seedDeliveryConfig };
   private orders: Order[] = [];
+  private customers: Customer[] = [];
 
   async listCategories(): Promise<Category[]> {
     return this.categories;
@@ -118,6 +121,46 @@ export class MemoryStore implements Store {
 
   async listOrders(): Promise<Order[]> {
     return [...this.orders].reverse();
+  }
+
+  async upsertCustomer(input: CustomerUpsert): Promise<Customer> {
+    const email = input.email.trim().toLowerCase();
+    const now = new Date().toISOString();
+    let customer = this.customers.find((c) => c.email === email);
+    if (!customer) {
+      customer = {
+        id: randomUUID(),
+        name: input.name ?? "",
+        email,
+        phone: input.phone ?? "",
+        districtId: input.districtId ?? null,
+        birthday: input.birthday ?? null,
+        acceptsMarketing: input.acceptsMarketing ?? false,
+        ordersCount: 0,
+        totalSpent: 0,
+        createdAt: now,
+        lastOrderAt: null,
+      };
+      this.customers.push(customer);
+    } else {
+      if (input.name) customer.name = input.name;
+      if (input.phone) customer.phone = input.phone;
+      if (input.districtId) customer.districtId = input.districtId;
+      if (input.birthday) customer.birthday = input.birthday;
+      // el consentimiento solo se activa, nunca se apaga silenciosamente
+      if (input.acceptsMarketing) customer.acceptsMarketing = true;
+    }
+    if (input.orderTotal !== undefined) {
+      customer.ordersCount += 1;
+      customer.totalSpent =
+        Math.round((customer.totalSpent + input.orderTotal) * 100) / 100;
+      customer.lastOrderAt = now;
+    }
+    return customer;
+  }
+
+  async listCustomers(): Promise<Customer[]> {
+    return [...this.customers].reverse();
   }
 
   async decrementStock(

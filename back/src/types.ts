@@ -68,6 +68,32 @@ export interface Order {
   createdAt: string;
 }
 
+export interface Customer {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  districtId: string | null;
+  birthday: string | null; // YYYY-MM-DD
+  acceptsMarketing: boolean; // aceptó recibir campañas y promociones
+  ordersCount: number;
+  totalSpent: number;
+  createdAt: string;
+  lastOrderAt: string | null;
+}
+
+/** Datos parciales para crear/actualizar un cliente por email. */
+export interface CustomerUpsert {
+  email: string;
+  name?: string;
+  phone?: string;
+  districtId?: string;
+  birthday?: string;
+  acceptsMarketing?: boolean;
+  /** Si viene, registra una compra: incrementa contador y gasto total. */
+  orderTotal?: number;
+}
+
 export interface DeliveryQuote {
   districtId: string;
   districtName: string;

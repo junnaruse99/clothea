@@ -1,5 +1,7 @@
 import {
   Category,
+  Customer,
+  CustomerUpsert,
   DeliveryConfig,
   District,
   Order,
@@ -33,6 +35,9 @@ export interface Store {
   listOrders(): Promise<Order[]>;
   /** Descuenta stock de las variantes vendidas (al confirmar el pago). */
   decrementStock(items: { productId: string; size: string; quantity: number }[]): Promise<void>;
+  /** Crea o actualiza un cliente por email (cartera de clientes). */
+  upsertCustomer(input: CustomerUpsert): Promise<Customer>;
+  listCustomers(): Promise<Customer[]>;
 }
 
 let store: Store | null = null;

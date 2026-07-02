@@ -3,6 +3,7 @@ import express from "express";
 import { config } from "./config";
 import { adminRouter, UPLOADS_DIR } from "./routes/admin";
 import { catalogRouter } from "./routes/catalog";
+import { customersRouter } from "./routes/customers";
 import { deliveryRouter } from "./routes/delivery";
 import { ordersRouter } from "./routes/orders";
 
@@ -21,6 +22,7 @@ app.get("/api/health", (_req, res) => {
 app.use("/api", catalogRouter);
 app.use("/api/delivery", deliveryRouter);
 app.use("/api/orders", ordersRouter);
+app.use("/api/customers", customersRouter);
 app.use("/api/admin", adminRouter);
 
 app.use(

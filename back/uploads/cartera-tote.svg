@@ -1,15 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#d4a373"/>
-      <stop offset="1" stop-color="#8f5e34"/>
+      <stop offset="0" stop-color="#dbbf9e"/>
+      <stop offset="1" stop-color="#a8825d"/>
     </linearGradient>
   </defs>
   <rect width="600" height="800" fill="url(#bg)"/>
-  <circle cx="300" cy="340" r="210" fill="rgba(255,255,255,0.14)"/>
-  <circle cx="490" cy="120" r="90" fill="rgba(255,255,255,0.10)"/>
-  <circle cx="90" cy="640" r="120" fill="rgba(255,255,255,0.10)"/>
-  <path d="M245 300 l110 0 20 190 c-50 16 -100 16 -150 0 z M270 300 c0 -55 60 -55 60 0" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="16"/><path d="M245 300 l110 0 20 190 c-50 16 -100 16 -150 0 z" fill="rgba(255,255,255,0.45)"/>
+  <circle cx="300" cy="340" r="210" fill="rgba(255,255,255,0.16)"/>
+  <circle cx="490" cy="120" r="90" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="90" cy="640" r="120" fill="rgba(255,255,255,0.12)"/>
+  <text x="88" y="120" font-family="Georgia, serif" font-size="26" fill="rgba(255,255,255,0.55)">&#10047;</text>
+  <text x="500" y="620" font-family="Georgia, serif" font-size="20" fill="rgba(255,255,255,0.45)">&#10022;</text>
+  <path d="M270 300 c0 -55 60 -55 60 0" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="14"/><path d="M245 300 l110 0 20 190 c-50 16 -100 16 -150 0 z" fill="rgba(255,255,255,0.42)"/>
   <text x="300" y="700" font-family="Georgia, serif" font-size="34" font-style="italic" text-anchor="middle" fill="#ffffff">Cartera Tote</text>
   <text x="300" y="745" font-family="Georgia, serif" font-size="18" letter-spacing="6" text-anchor="middle" fill="#ffffff" opacity="0.75">CLOTHEA</text>
 </svg>

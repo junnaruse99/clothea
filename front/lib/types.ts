@@ -74,6 +74,20 @@ export interface Order {
   createdAt: string;
 }
 
+export interface Customer {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  districtId: string | null;
+  birthday: string | null;
+  acceptsMarketing: boolean;
+  ordersCount: number;
+  totalSpent: number;
+  createdAt: string;
+  lastOrderAt: string | null;
+}
+
 export interface PaymentSession {
   provider: string;
   paymentId: string;

@@ -1,5 +1,6 @@
 import {
   Category,
+  Customer,
   DeliveryConfig,
   DeliveryQuote,
   District,
@@ -67,6 +68,18 @@ export const api = {
     request<Order>(`/api/orders/${orderId}/pay`, { method: "POST" }),
 
   getOrder: (id: string) => request<Order>(`/api/orders/${id}`),
+
+  subscribeCustomer: (payload: {
+    email: string;
+    name?: string;
+    phone?: string;
+    districtId?: string;
+    birthday?: string;
+  }) =>
+    request<{ ok: boolean }>("/api/customers/subscribe", {
+      method: "POST",
+      body: JSON.stringify(payload),
+    }),
 };
 
 // ------------------------- Panel admin -------------------------
@@ -144,4 +157,7 @@ export const adminApi = {
 
   getOrders: () =>
     request<Order[]>("/api/admin/orders", { headers: adminHeaders() }),
+
+  getCustomers: () =>
+    request<Customer[]>("/api/admin/customers", { headers: adminHeaders() }),
 };
