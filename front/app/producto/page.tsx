@@ -1,18 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { useCart } from "@/components/CartContext";
 import { api, imgUrl } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import { Product } from "@/lib/types";
 
-export default function ProductPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
+function ProductContent() {
+  const id = useSearchParams().get("id") ?? "";
   const { addItem } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState("");
@@ -209,5 +206,13 @@ export default function ProductPage({
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ProductPage() {
+  return (
+    <Suspense>
+      <ProductContent />
+    </Suspense>
   );
 }

@@ -85,7 +85,7 @@ export default function CheckoutPage() {
     try {
       await api.payOrder(payment.order.id);
       clear();
-      router.push(`/orden/${payment.order.id}`);
+      router.push(`/orden?id=${payment.order.id}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error procesando el pago");
       setPaying(false);

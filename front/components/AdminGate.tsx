@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
-import { adminApi, clearAdminKey, getAdminKey, setAdminKey } from "@/lib/api";
+import { adminApi, clearAdminKey, DEMO, getAdminKey, setAdminKey } from "@/lib/api";
 
 /**
  * Puerta de acceso al panel admin del MVP: pide la clave (ADMIN_KEY del
@@ -67,8 +67,14 @@ export function AdminGate({ children }: { children: ReactNode }) {
             Ingresar
           </button>
           <p className="text-center text-xs text-ink-soft">
-            La clave por defecto en desarrollo es{" "}
-            <code className="rounded bg-sand px-1">clothea-admin</code>
+            {DEMO ? (
+              <>Versión demo: cualquier clave funciona ✿</>
+            ) : (
+              <>
+                La clave por defecto en desarrollo es{" "}
+                <code className="rounded bg-sand px-1">clothea-admin</code>
+              </>
+            )}
           </p>
         </form>
       </div>

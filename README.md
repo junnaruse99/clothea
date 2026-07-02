@@ -93,6 +93,31 @@ Para cambiar la fórmula misma, edita `back/src/delivery.ts`.
 | POST   | `/api/customers/subscribe`   | Alta en el Club Clothea (opt-in de marketing) |
 | \*     | `/api/admin/...`             | CRUD productos, config delivery, órdenes, clientes y subida de fotos (header `x-admin-key`) |
 
+## Demo en GitHub Pages (solo front)
+
+El workflow `.github/workflows/deploy-pages.yml` publica el front como sitio
+estático en **GitHub Pages** en cada push a `main` (también se puede lanzar a
+mano desde Actions → *Deploy front a GitHub Pages*). Queda disponible en:
+
+```
+https://<usuario>.github.io/clothea/
+```
+
+Como Pages no puede ejecutar el backend, el build se hace con
+`NEXT_PUBLIC_DEMO=true`: el sitio corre en **modo demo**, replicando toda la
+lógica del API en el navegador (localStorage) — catálogo, carrito, checkout
+con delivery por distancia, pago simulado, Club Clothea e incluso el panel
+admin (en demo acepta cualquier clave y las fotos se guardan como data URLs).
+Cada visitante tiene su propia "base de datos" local; nada se comparte.
+
+Detalles técnicos del export estático:
+
+- `NEXT_OUTPUT=export` activa `output: "export"` (en local no afecta a
+  `next dev`/`next start`).
+- `NEXT_PUBLIC_BASE_PATH=/<repo>` porque Pages sirve bajo subruta.
+- Las páginas de detalle usan query params (`/producto?id=...`) en lugar de
+  rutas dinámicas, que no son exportables sin pre-generar cada id.
+
 ## Rutas de crecimiento previstas
 
 - **Fotos**: hoy se guardan en `back/uploads/` (en el repo) vía

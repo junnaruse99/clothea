@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import { formatDate, formatPrice } from "@/lib/format";
 import { Order } from "@/lib/types";
@@ -17,12 +18,8 @@ const petals = [
   { left: "93%", delay: "3s", char: "♥", size: "text-base", color: "text-champagne" },
 ];
 
-export default function OrderPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
+function OrderContent() {
+  const id = useSearchParams().get("id") ?? "";
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState("");
 
@@ -205,5 +202,13 @@ export default function OrderPage({
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function OrderPage() {
+  return (
+    <Suspense>
+      <OrderContent />
+    </Suspense>
   );
 }

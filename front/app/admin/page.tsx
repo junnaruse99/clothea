@@ -114,7 +114,7 @@ export default function AdminProductsPage() {
                     <td className="px-4 py-3">
                       <div className="flex justify-end gap-3">
                         <Link
-                          href={`/admin/productos/${p.id}`}
+                          href={`/admin/productos/editar?id=${p.id}`}
                           className="text-rose hover:underline"
                         >
                           Editar

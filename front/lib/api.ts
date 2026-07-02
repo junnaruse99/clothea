@@ -1,3 +1,4 @@
+import { demoAdminApi, demoApi } from "./demo";
 import {
   Category,
   Customer,
@@ -12,10 +13,18 @@ import {
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
 
-/** Las fotos vienen como rutas relativas del API (/uploads/...). */
+/** Modo demo (GitHub Pages): todo corre en el navegador, sin backend. */
+export const DEMO = process.env.NEXT_PUBLIC_DEMO === "true";
+
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+/** Resuelve la URL de una foto según su origen. */
 export function imgUrl(path: string): string {
   if (!path) return "";
-  return path.startsWith("http") ? path : `${API_URL}${path}`;
+  if (path.startsWith("http") || path.startsWith("data:")) return path;
+  // assets estáticos del propio front (modo demo en GitHub Pages)
+  if (path.startsWith("/demo/")) return `${BASE_PATH}${path}`;
+  return `${API_URL}${path}`;
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -34,9 +43,11 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 // ------------------------- Catálogo público -------------------------
 
 export const api = {
-  getCategories: () => request<Category[]>("/api/categories"),
+  getCategories: () =>
+    DEMO ? demoApi.getCategories() : request<Category[]>("/api/categories"),
 
   getProducts: (params?: { category?: string; search?: string; sale?: boolean }) => {
+    if (DEMO) return demoApi.getProducts(params);
     const qs = new URLSearchParams();
     if (params?.category) qs.set("category", params.category);
     if (params?.search) qs.set("search", params.search);
@@ -45,29 +56,38 @@ export const api = {
     return request<Product[]>(`/api/products${suffix}`);
   },
 
-  getProduct: (id: string) => request<Product>(`/api/products/${id}`),
+  getProduct: (id: string) =>
+    DEMO ? demoApi.getProduct(id) : request<Product>(`/api/products/${id}`),
 
-  getDistricts: () => request<District[]>("/api/delivery/districts"),
+  getDistricts: () =>
+    DEMO ? demoApi.getDistricts() : request<District[]>("/api/delivery/districts"),
 
   quoteDelivery: (districtId: string, subtotal: number) =>
-    request<DeliveryQuote>("/api/delivery/quote", {
-      method: "POST",
-      body: JSON.stringify({ districtId, subtotal }),
-    }),
+    DEMO
+      ? demoApi.quoteDelivery(districtId, subtotal)
+      : request<DeliveryQuote>("/api/delivery/quote", {
+          method: "POST",
+          body: JSON.stringify({ districtId, subtotal }),
+        }),
 
   createOrder: (payload: {
     items: { productId: string; size: string; quantity: number }[];
     customer: Order["customer"];
   }) =>
-    request<{ order: Order; payment: PaymentSession }>("/api/orders", {
-      method: "POST",
-      body: JSON.stringify(payload),
-    }),
+    DEMO
+      ? demoApi.createOrder(payload)
+      : request<{ order: Order; payment: PaymentSession }>("/api/orders", {
+          method: "POST",
+          body: JSON.stringify(payload),
+        }),
 
   payOrder: (orderId: string) =>
-    request<Order>(`/api/orders/${orderId}/pay`, { method: "POST" }),
+    DEMO
+      ? demoApi.payOrder(orderId)
+      : request<Order>(`/api/orders/${orderId}/pay`, { method: "POST" }),
 
-  getOrder: (id: string) => request<Order>(`/api/orders/${id}`),
+  getOrder: (id: string) =>
+    DEMO ? demoApi.getOrder(id) : request<Order>(`/api/orders/${id}`),
 
   subscribeCustomer: (payload: {
     email: string;
@@ -76,10 +96,12 @@ export const api = {
     districtId?: string;
     birthday?: string;
   }) =>
-    request<{ ok: boolean }>("/api/customers/subscribe", {
-      method: "POST",
-      body: JSON.stringify(payload),
-    }),
+    DEMO
+      ? demoApi.subscribeCustomer(payload)
+      : request<{ ok: boolean }>("/api/customers/subscribe", {
+          method: "POST",
+          body: JSON.stringify(payload),
+        }),
 };
 
 // ------------------------- Panel admin -------------------------
@@ -105,32 +127,43 @@ function adminHeaders(): Record<string, string> {
 
 export const adminApi = {
   getProducts: () =>
-    request<Product[]>("/api/admin/products", { headers: adminHeaders() }),
+    DEMO
+      ? demoAdminApi.getProducts()
+      : request<Product[]>("/api/admin/products", { headers: adminHeaders() }),
 
   getProduct: (id: string) =>
-    request<Product>(`/api/admin/products/${id}`, { headers: adminHeaders() }),
+    DEMO
+      ? demoAdminApi.getProduct(id)
+      : request<Product>(`/api/admin/products/${id}`, { headers: adminHeaders() }),
 
   createProduct: (input: Omit<Product, "id" | "createdAt">) =>
-    request<Product>("/api/admin/products", {
-      method: "POST",
-      headers: adminHeaders(),
-      body: JSON.stringify(input),
-    }),
+    DEMO
+      ? demoAdminApi.createProduct(input)
+      : request<Product>("/api/admin/products", {
+          method: "POST",
+          headers: adminHeaders(),
+          body: JSON.stringify(input),
+        }),
 
   updateProduct: (id: string, input: Partial<Omit<Product, "id" | "createdAt">>) =>
-    request<Product>(`/api/admin/products/${id}`, {
-      method: "PUT",
-      headers: adminHeaders(),
-      body: JSON.stringify(input),
-    }),
+    DEMO
+      ? demoAdminApi.updateProduct(id, input)
+      : request<Product>(`/api/admin/products/${id}`, {
+          method: "PUT",
+          headers: adminHeaders(),
+          body: JSON.stringify(input),
+        }),
 
   deleteProduct: (id: string) =>
-    request<void>(`/api/admin/products/${id}`, {
-      method: "DELETE",
-      headers: adminHeaders(),
-    }),
+    DEMO
+      ? demoAdminApi.deleteProduct(id)
+      : request<void>(`/api/admin/products/${id}`, {
+          method: "DELETE",
+          headers: adminHeaders(),
+        }),
 
   uploadPhotos: async (files: FileList): Promise<string[]> => {
+    if (DEMO) return demoAdminApi.uploadPhotos(files);
     const form = new FormData();
     Array.from(files).forEach((f) => form.append("photos", f));
     const res = await fetch(`${API_URL}/api/admin/uploads`, {
@@ -144,20 +177,28 @@ export const adminApi = {
   },
 
   getDeliveryConfig: () =>
-    request<DeliveryConfig>("/api/admin/delivery-config", {
-      headers: adminHeaders(),
-    }),
+    DEMO
+      ? demoAdminApi.getDeliveryConfig()
+      : request<DeliveryConfig>("/api/admin/delivery-config", {
+          headers: adminHeaders(),
+        }),
 
   updateDeliveryConfig: (cfg: DeliveryConfig) =>
-    request<DeliveryConfig>("/api/admin/delivery-config", {
-      method: "PUT",
-      headers: adminHeaders(),
-      body: JSON.stringify(cfg),
-    }),
+    DEMO
+      ? demoAdminApi.updateDeliveryConfig(cfg)
+      : request<DeliveryConfig>("/api/admin/delivery-config", {
+          method: "PUT",
+          headers: adminHeaders(),
+          body: JSON.stringify(cfg),
+        }),
 
   getOrders: () =>
-    request<Order[]>("/api/admin/orders", { headers: adminHeaders() }),
+    DEMO
+      ? demoAdminApi.getOrders()
+      : request<Order[]>("/api/admin/orders", { headers: adminHeaders() }),
 
   getCustomers: () =>
-    request<Customer[]>("/api/admin/customers", { headers: adminHeaders() }),
+    DEMO
+      ? demoAdminApi.getCustomers()
+      : request<Customer[]>("/api/admin/customers", { headers: adminHeaders() }),
 };

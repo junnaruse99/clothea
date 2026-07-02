@@ -9,7 +9,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <Link
-      href={`/producto/${product.id}`}
+      href={`/producto?id=${product.id}`}
       className="group overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-sand transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-rose/10 hover:ring-rose/30"
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-blush">
