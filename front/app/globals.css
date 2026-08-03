@@ -19,6 +19,12 @@
   --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* El diseño es de esquema claro: esto evita que el navegador lo
+   oscurezca/invierta cuando el usuario tiene el modo oscuro activado */
+:root {
+  color-scheme: only light;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--color-cream);

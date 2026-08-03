@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { CartProvider } from "@/components/CartContext";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "Hanae Atelier · Moda femenina asequible en Lima",
   description:
     "Ropa femenina linda y asequible con delivery en todos los distritos de Lima, Perú.",
+};
+
+// Declara el sitio como claro para que el modo oscuro del navegador
+// (p. ej. el tema oscuro automático de Chrome) no invierta los colores
+export const viewport: Viewport = {
+  colorScheme: "only light",
+  themeColor: "#fdf9f8",
 };
 
 export default function RootLayout({
