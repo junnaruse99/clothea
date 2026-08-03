@@ -1,4 +1,4 @@
-# Hey Hey! 🌸 (repo: clothea)
+# Hanae Atelier 🌸 (repo: clothea)
 
 Tienda online de **ropa femenina asequible en Lima, Perú** — prototipo funcional (MVP).
 

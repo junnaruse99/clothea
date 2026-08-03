@@ -11,7 +11,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link href="/" className="group flex items-baseline gap-2">
           <span className="font-display text-2xl font-bold tracking-wide transition group-hover:text-rose">
-            Hey Hey!
+            Hanae Atelier
           </span>
           <span className="text-rose transition group-hover:rotate-12">✿</span>
           <span className="hidden text-[11px] font-medium uppercase tracking-[0.3em] text-ink-soft sm:inline">

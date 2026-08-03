@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Nosotros · Hey Hey!",
+  title: "Nosotros · Hanae Atelier",
 };
 
 export default function NosotrosPage() {
@@ -25,7 +25,7 @@ export default function NosotrosPage() {
 
       <div className="mx-auto max-w-3xl space-y-6 px-4 py-12 text-lg leading-relaxed text-ink-soft sm:px-6">
         <p>
-          En <strong className="text-ink">Hey Hey!</strong> creemos que verse y
+          En <strong className="text-ink">Hanae Atelier</strong> creemos que verse y
           sentirse bien no debería costar una fortuna. Nacimos en Lima con una
           idea simple: ofrecer{" "}
           <strong className="text-ink">ropa femenina asequible</strong>, bonita

@@ -23,7 +23,7 @@ function OrderContent() {
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState("");
 
-  // Club Hey Hey!: captura de datos para campañas y promociones
+  // Club Hanae Atelier: captura de datos para campañas y promociones
   const [birthday, setBirthday] = useState("");
   const [wantsPromos, setWantsPromos] = useState(true);
   const [clubStatus, setClubStatus] = useState<"idle" | "sending" | "done">(
@@ -128,7 +128,7 @@ function OrderContent() {
           </div>
         </div>
 
-        {/* Club Hey Hey!: cartera de clientes para campañas */}
+        {/* Club Hanae Atelier: cartera de clientes para campañas */}
         <div
           className="animate-fade-up mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-blush via-white to-lilac-soft p-8 shadow-lg shadow-lilac/10 ring-1 ring-sand"
           style={{ animationDelay: "0.2s" }}
@@ -147,7 +147,7 @@ function OrderContent() {
           ) : (
             <>
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-lilac">
-                Club Hey Hey!
+                Club Hanae Atelier
               </p>
               <h2 className="mt-2 font-display text-2xl font-bold">
                 Un regalito antes de irte,{" "}

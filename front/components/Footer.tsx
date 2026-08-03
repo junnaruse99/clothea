@@ -24,11 +24,11 @@ export function Footer() {
 
   return (
     <footer className="mt-20 border-t border-sand bg-gradient-to-b from-blush/60 to-lilac-soft/60">
-      {/* Club Hey Hey! */}
+      {/* Club Hanae Atelier */}
       <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6">
         <div className="rounded-3xl bg-white/70 p-8 text-center shadow-sm ring-1 ring-sand backdrop-blur sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-lilac">
-            Club Hey Hey!
+            Club Hanae Atelier
           </p>
           <h3 className="mt-2 font-display text-2xl font-bold sm:text-3xl">
             Ofertas y novedades, <em className="text-gradient">antes que nadie</em>
@@ -70,7 +70,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6">
         <div>
           <p className="font-display text-xl font-bold">
-            Hey Hey! <span className="text-rose">✿</span>
+            Hanae Atelier <span className="text-rose">✿</span>
           </p>
           <p className="mt-2 text-sm text-ink-soft">
             Moda femenina asequible, con amor desde Lima, Perú.
@@ -94,13 +94,13 @@ export function Footer() {
           <p className="font-semibold">Contacto</p>
           <ul className="mt-2 space-y-1 text-ink-soft">
             <li>Lima, Perú</li>
-            <li>hola@heyhey.pe</li>
+            <li>hola@hanaeatelier.com</li>
             <li>+51 999 999 999</li>
           </ul>
         </div>
       </div>
       <p className="pb-6 text-center text-xs text-ink-soft">
-        © {new Date().getFullYear()} Hey Hey! · Hecho con ♥ en Lima
+        © {new Date().getFullYear()} Hanae Atelier · Hecho con ♥ en Lima
       </p>
     </footer>
   );

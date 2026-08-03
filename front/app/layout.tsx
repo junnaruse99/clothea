@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hey Hey! · Moda femenina asequible en Lima",
+  title: "Hanae Atelier · Moda femenina asequible en Lima",
   description:
     "Ropa femenina linda y asequible con delivery en todos los distritos de Lima, Perú.",
 };
