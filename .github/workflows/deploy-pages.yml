@@ -38,8 +38,10 @@ jobs:
         env:
           NEXT_OUTPUT: export
           NEXT_PUBLIC_DEMO: "true"
-          # GitHub Pages sirve el sitio bajo /<nombre-del-repo>
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          # Con dominio propio (hanaeatelier.com) el sitio se sirve en la raíz,
+          # así que va sin basePath. Si algún día se vuelve a usar la URL
+          # <usuario>.github.io/<repo>, restaurar: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_BASE_PATH: ""
         run: npm run build
 
       - name: Desactivar Jekyll
@@ -51,3 +53,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: front/out
           force_orphan: true
+          # Mantiene el CNAME del dominio propio en cada deploy; sin esto,
+          # el force_orphan lo borraría y se desconectaría el dominio
+          cname: hanaeatelier.com
