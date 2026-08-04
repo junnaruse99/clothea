@@ -10,7 +10,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/producto?id=${product.id}`}
-      className="group overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-sand transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-rose/10 hover:ring-rose/30"
+      className="group overflow-hidden rounded-3xl bg-surface shadow-sm ring-1 ring-sand transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-rose/10 hover:ring-rose/30"
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-blush">
         {product.photos[0] ? (
@@ -26,17 +26,17 @@ export function ProductCard({ product }: { product: Product }) {
           </div>
         )}
         {onSale && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-rose shadow-sm backdrop-blur">
+          <span className="absolute left-3 top-3 rounded-full bg-surface/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-rose shadow-sm backdrop-blur">
             ♥ Oferta
           </span>
         )}
         {stock === 0 && (
-          <span className="absolute right-3 top-3 rounded-full bg-ink/85 px-3 py-1 text-[11px] font-bold text-white backdrop-blur">
+          <span className="absolute right-3 top-3 rounded-full bg-ink/85 px-3 py-1 text-[11px] font-bold text-cream backdrop-blur">
             Agotado
           </span>
         )}
         {/* Cinta "ver detalle" que sube al hacer hover */}
-        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-ink/60 to-transparent p-4 pt-10 text-center text-sm font-medium text-white transition-transform duration-300 group-hover:translate-y-0">
+        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/60 to-transparent p-4 pt-10 text-center text-sm font-medium text-white transition-transform duration-300 group-hover:translate-y-0">
           Ver detalle →
         </div>
       </div>

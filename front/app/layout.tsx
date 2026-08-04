@@ -10,11 +10,14 @@ export const metadata: Metadata = {
     "Ropa femenina linda y asequible con delivery en todos los distritos de Lima, Perú.",
 };
 
-// Declara el sitio como claro para que el modo oscuro del navegador
-// (p. ej. el tema oscuro automático de Chrome) no invierta los colores
+// El sitio trae tema claro y oscuro propios (tokens en globals.css);
+// declararlo evita además el oscurecimiento forzado del navegador
 export const viewport: Viewport = {
-  colorScheme: "only light",
-  themeColor: "#fdf9f8",
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fdf9f8" },
+    { media: "(prefers-color-scheme: dark)", color: "#211721" },
+  ],
 };
 
 export default function RootLayout({

@@ -46,7 +46,7 @@ export default function AdminDeliveryPage() {
   };
 
   const input =
-    "mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 text-sm outline-none focus:border-rose";
+    "mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 text-sm outline-none focus:border-rose";
 
   const fields: { key: keyof DeliveryConfig; label: string; hint: string }[] = [
     { key: "originLat", label: "Latitud de la tienda", hint: "Punto de partida del delivery" },
@@ -93,7 +93,7 @@ export default function AdminDeliveryPage() {
 
         <button
           type="submit"
-          className="rounded-xl bg-rose px-6 py-3 font-semibold text-white transition hover:bg-rose-dark"
+          className="rounded-xl bg-rose px-6 py-3 font-semibold text-cream transition hover:bg-rose-dark"
         >
           {saved ? "✓ Guardado" : "Guardar configuración"}
         </button>
@@ -103,9 +103,9 @@ export default function AdminDeliveryPage() {
         <h2 className="font-display text-xl font-semibold">
           Vista previa de tarifas
         </h2>
-        <div className="mt-4 max-h-[480px] overflow-y-auto rounded-2xl bg-white shadow-sm ring-1 ring-sand">
+        <div className="mt-4 max-h-[480px] overflow-y-auto rounded-2xl bg-surface shadow-sm ring-1 ring-sand">
           <table className="w-full text-left text-sm">
-            <thead className="sticky top-0 border-b border-sand bg-white text-xs uppercase tracking-wide text-ink-soft">
+            <thead className="sticky top-0 border-b border-sand bg-surface text-xs uppercase tracking-wide text-ink-soft">
               <tr>
                 <th className="px-4 py-3">Distrito</th>
                 <th className="px-4 py-3">Distancia</th>

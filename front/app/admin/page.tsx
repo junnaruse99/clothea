@@ -40,7 +40,7 @@ export default function AdminProductsPage() {
         </p>
         <Link
           href="/admin/productos/nuevo"
-          className="rounded-xl bg-rose px-4 py-2 text-sm font-semibold text-white transition hover:bg-rose-dark"
+          className="rounded-xl bg-rose px-4 py-2 text-sm font-semibold text-cream transition hover:bg-rose-dark"
         >
           + Nuevo producto
         </Link>
@@ -49,7 +49,7 @@ export default function AdminProductsPage() {
       {loading ? (
         <p className="mt-8 text-ink-soft">Cargando...</p>
       ) : (
-        <div className="mt-4 overflow-x-auto rounded-2xl bg-white shadow-sm ring-1 ring-sand">
+        <div className="mt-4 overflow-x-auto rounded-2xl bg-surface shadow-sm ring-1 ring-sand">
           <table className="w-full min-w-[720px] text-left text-sm">
             <thead className="border-b border-sand text-xs uppercase tracking-wide text-ink-soft">
               <tr>

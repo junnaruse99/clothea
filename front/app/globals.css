@@ -4,6 +4,7 @@
   /* Paleta "girly elegante": rosa empolvado, lila suave y champagne
      sobre blanco pétalo. Nada saturado ni chillón. */
   --color-cream: #fdf9f8;
+  --color-surface: #ffffff;
   --color-sand: #f3e3e7;
   --color-blush: #f9ebef;
   --color-rose: #b76e8b;
@@ -19,10 +20,29 @@
   --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* El diseño es de esquema claro: esto evita que el navegador lo
-   oscurezca/invierta cuando el usuario tiene el modo oscuro activado */
+/* El sitio tiene tema claro y oscuro propios; declararlo evita además
+   que el navegador aplique su oscurecimiento forzado */
 :root {
-  color-scheme: only light;
+  color-scheme: light dark;
+}
+
+/* Modo oscuro de verdad: ciruela profunda con rosas empolvados más
+   luminosos. Los mismos tokens, recalibrados — nada de inversiones. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-cream: #211721;
+    --color-surface: #2d2030;
+    --color-sand: #402f42;
+    --color-blush: #382634;
+    --color-rose: #d78ca9;
+    --color-rose-dark: #e3a6be;
+    --color-terracotta: #d49fae;
+    --color-lilac: #bfa3e4;
+    --color-lilac-soft: #332b40;
+    --color-champagne: #d9bc97;
+    --color-ink: #f5e9f0;
+    --color-ink-soft: #bb9dab;
+  }
 }
 
 body {
@@ -41,6 +61,14 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .text-gradient {
+    background: linear-gradient(100deg, #e59cb8 10%, #c9aeee 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
 
 /* ----------------------------- Animaciones ----------------------------- */
@@ -162,6 +190,13 @@ body {
   background: linear-gradient(100deg, #f3e3e7 40%, #fbf2f5 50%, #f3e3e7 60%);
   background-size: 200% 100%;
   animation: shimmer 1.6s linear infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: linear-gradient(100deg, #3a2a3c 40%, #4a3650 50%, #3a2a3c 60%);
+    background-size: 200% 100%;
+  }
 }
 
 /* Pétalos/corazones subiendo en la confirmación */

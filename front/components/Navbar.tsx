@@ -31,7 +31,7 @@ export function Navbar() {
           </Link>
           <Link
             href="/carrito"
-            className="relative flex items-center gap-2 rounded-full bg-gradient-to-r from-rose to-lilac px-4 py-2 font-medium text-white shadow-md shadow-rose/20 transition hover:scale-105 hover:shadow-lg hover:shadow-rose/30 active:scale-95"
+            className="relative flex items-center gap-2 rounded-full bg-gradient-to-r from-rose to-lilac px-4 py-2 font-medium text-cream shadow-md shadow-rose/20 transition hover:scale-105 hover:shadow-lg hover:shadow-rose/30 active:scale-95"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 6h15l-1.5 9h-12z" />
@@ -43,7 +43,7 @@ export function Navbar() {
             {count > 0 && (
               <span
                 key={count}
-                className="animate-pop absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-ink px-1 text-xs font-bold text-white"
+                className="animate-pop absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-ink px-1 text-xs font-bold text-cream"
               >
                 {count}
               </span>

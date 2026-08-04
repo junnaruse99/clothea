@@ -120,7 +120,7 @@ export default function CheckoutPage() {
                 value={form.name}
                 onChange={set("name")}
                 required
-                className="mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 outline-none focus:border-rose"
+                className="mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 outline-none focus:border-rose"
               />
             </label>
             <label className="block text-sm">
@@ -130,7 +130,7 @@ export default function CheckoutPage() {
                 onChange={set("phone")}
                 required
                 placeholder="999 999 999"
-                className="mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 outline-none focus:border-rose"
+                className="mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 outline-none focus:border-rose"
               />
             </label>
           </div>
@@ -141,7 +141,7 @@ export default function CheckoutPage() {
               value={form.email}
               onChange={set("email")}
               required
-              className="mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 outline-none focus:border-rose"
+              className="mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 outline-none focus:border-rose"
             />
           </label>
           <label className="block text-sm">
@@ -150,7 +150,7 @@ export default function CheckoutPage() {
               value={form.districtId}
               onChange={set("districtId")}
               required
-              className="mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 outline-none focus:border-rose"
+              className="mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 outline-none focus:border-rose"
             >
               <option value="">Elige tu distrito</option>
               {districts.map((d) => (
@@ -167,7 +167,7 @@ export default function CheckoutPage() {
               onChange={set("address")}
               required
               placeholder="Av. Ejemplo 123, Dpto 201"
-              className="mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 outline-none focus:border-rose"
+              className="mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 outline-none focus:border-rose"
             />
           </label>
 
@@ -195,14 +195,14 @@ export default function CheckoutPage() {
           <button
             type="submit"
             disabled={!formReady || submitting}
-            className="w-full rounded-xl bg-rose py-3 font-semibold text-white transition hover:bg-rose-dark disabled:cursor-not-allowed disabled:bg-sand disabled:text-ink-soft"
+            className="w-full rounded-xl bg-rose py-3 font-semibold text-cream transition hover:bg-rose-dark disabled:cursor-not-allowed disabled:bg-sand disabled:text-ink-soft"
           >
             {submitting ? "Procesando..." : `Pagar ${formatPrice(total)}`}
           </button>
         </form>
 
         {/* Resumen */}
-        <aside className="h-fit rounded-2xl bg-white p-6 shadow-sm ring-1 ring-sand">
+        <aside className="h-fit rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-sand">
           <h2 className="font-display text-xl font-semibold">Resumen</h2>
           <ul className="mt-4 space-y-3 text-sm">
             {items.map((i) => (
@@ -244,8 +244,8 @@ export default function CheckoutPage() {
 
       {/* Modal del gateway de pago (mock; reemplazar por Culqi/MercadoPago) */}
       {payment && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="w-full max-w-md rounded-2xl bg-surface p-6 shadow-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink-soft">
               Pasarela de pago · demo
             </p>
@@ -280,7 +280,7 @@ export default function CheckoutPage() {
             <button
               onClick={handlePay}
               disabled={paying}
-              className="mt-5 w-full rounded-xl bg-rose py-3 font-semibold text-white transition hover:bg-rose-dark disabled:bg-sand disabled:text-ink-soft"
+              className="mt-5 w-full rounded-xl bg-rose py-3 font-semibold text-cream transition hover:bg-rose-dark disabled:bg-sand disabled:text-ink-soft"
             >
               {paying ? "Confirmando..." : "Confirmar pago"}
             </button>

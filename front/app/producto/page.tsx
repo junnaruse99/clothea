@@ -122,7 +122,7 @@ function ProductContent() {
                 <span className="text-lg text-ink-soft line-through">
                   {formatPrice(product.price)}
                 </span>
-                <span className="rounded-full bg-terracotta px-3 py-1 text-xs font-bold uppercase text-white">
+                <span className="rounded-full bg-terracotta px-3 py-1 text-xs font-bold uppercase text-cream">
                   Oferta
                 </span>
               </>
@@ -154,8 +154,8 @@ function ProductContent() {
                     v.quantity === 0
                       ? "cursor-not-allowed bg-sand text-ink-soft/50 line-through"
                       : size === v.size
-                        ? "bg-rose text-white shadow"
-                        : "bg-white text-ink ring-1 ring-sand hover:ring-rose"
+                        ? "bg-rose text-cream shadow"
+                        : "bg-surface text-ink ring-1 ring-sand hover:ring-rose"
                   }`}
                 >
                   {v.size}
@@ -173,7 +173,7 @@ function ProductContent() {
 
           {/* Cantidad + agregar */}
           <div className="mt-6 flex items-center gap-4">
-            <div className="flex items-center rounded-xl bg-white ring-1 ring-sand">
+            <div className="flex items-center rounded-xl bg-surface ring-1 ring-sand">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 className="px-4 py-2.5 text-lg text-ink-soft hover:text-rose"
@@ -191,7 +191,7 @@ function ProductContent() {
             <button
               onClick={handleAdd}
               disabled={maxQty === 0}
-              className="flex-1 rounded-xl bg-rose px-6 py-3 font-semibold text-white shadow transition hover:bg-rose-dark disabled:cursor-not-allowed disabled:bg-sand disabled:text-ink-soft"
+              className="flex-1 rounded-xl bg-rose px-6 py-3 font-semibold text-cream shadow transition hover:bg-rose-dark disabled:cursor-not-allowed disabled:bg-sand disabled:text-ink-soft"
             >
               {added ? "✓ Agregado al carrito" : "Agregar al carrito"}
             </button>

@@ -26,7 +26,7 @@ export function Footer() {
     <footer className="mt-20 border-t border-sand bg-gradient-to-b from-blush/60 to-lilac-soft/60">
       {/* Club Hanae Atelier */}
       <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6">
-        <div className="rounded-3xl bg-white/70 p-8 text-center shadow-sm ring-1 ring-sand backdrop-blur sm:p-10">
+        <div className="rounded-3xl bg-surface/70 p-8 text-center shadow-sm ring-1 ring-sand backdrop-blur sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-lilac">
             Club Hanae Atelier
           </p>
@@ -48,12 +48,12 @@ export function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="tu@email.com"
-                className="w-full rounded-full border border-sand bg-white px-5 py-2.5 text-sm outline-none transition focus:border-rose"
+                className="w-full rounded-full border border-sand bg-surface px-5 py-2.5 text-sm outline-none transition focus:border-rose"
               />
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="whitespace-nowrap rounded-full bg-gradient-to-r from-rose to-lilac px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-rose/20 transition hover:scale-105 disabled:opacity-60"
+                className="whitespace-nowrap rounded-full bg-gradient-to-r from-rose to-lilac px-5 py-2.5 text-sm font-semibold text-cream shadow-md shadow-rose/20 transition hover:scale-105 disabled:opacity-60"
               >
                 {status === "sending" ? "..." : "Unirme"}
               </button>

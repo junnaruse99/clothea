@@ -70,13 +70,13 @@ export default function AdminCustomersPage() {
         </p>
         <button
           onClick={exportCsv}
-          className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-rose ring-1 ring-rose/30 transition hover:bg-blush"
+          className="rounded-xl bg-surface px-4 py-2 text-sm font-semibold text-rose ring-1 ring-rose/30 transition hover:bg-blush"
         >
           Exportar CSV
         </button>
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded-2xl bg-white shadow-sm ring-1 ring-sand">
+      <div className="mt-4 overflow-x-auto rounded-2xl bg-surface shadow-sm ring-1 ring-sand">
         <table className="w-full min-w-[860px] text-left text-sm">
           <thead className="border-b border-sand text-xs uppercase tracking-wide text-ink-soft">
             <tr>

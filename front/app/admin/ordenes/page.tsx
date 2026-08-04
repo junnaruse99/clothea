@@ -35,7 +35,7 @@ export default function AdminOrdersPage() {
         return (
           <div
             key={o.id}
-            className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-sand"
+            className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-sand"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div>

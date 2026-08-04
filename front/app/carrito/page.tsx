@@ -17,7 +17,7 @@ export default function CartPage() {
         </p>
         <Link
           href="/"
-          className="mt-6 inline-block rounded-xl bg-rose px-6 py-3 font-semibold text-white transition hover:bg-rose-dark"
+          className="mt-6 inline-block rounded-xl bg-rose px-6 py-3 font-semibold text-cream transition hover:bg-rose-dark"
         >
           Ir a la tienda
         </Link>
@@ -33,7 +33,7 @@ export default function CartPage() {
         {items.map((item) => (
           <div
             key={`${item.productId}-${item.size}`}
-            className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-sand"
+            className="flex gap-4 rounded-2xl bg-surface p-4 shadow-sm ring-1 ring-sand"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -91,7 +91,7 @@ export default function CartPage() {
         ))}
       </div>
 
-      <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-sand">
+      <div className="mt-8 rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-sand">
         <div className="flex items-center justify-between text-lg">
           <span>Subtotal</span>
           <span className="font-bold">{formatPrice(subtotal)}</span>
@@ -101,7 +101,7 @@ export default function CartPage() {
         </p>
         <Link
           href="/checkout"
-          className="mt-4 block rounded-xl bg-rose py-3 text-center font-semibold text-white transition hover:bg-rose-dark"
+          className="mt-4 block rounded-xl bg-rose py-3 text-center font-semibold text-cream transition hover:bg-rose-dark"
         >
           Continuar con la compra
         </Link>

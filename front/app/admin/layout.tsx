@@ -46,7 +46,7 @@ export default function AdminLayout({
                 href={l.href}
                 className={`rounded-full px-4 py-1.5 text-sm transition ${
                   active
-                    ? "bg-rose font-semibold text-white"
+                    ? "bg-rose font-semibold text-cream"
                     : "text-ink-soft hover:bg-blush"
                 }`}
               >

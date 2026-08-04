@@ -114,7 +114,7 @@ export function ProductForm({ productId }: Props) {
   };
 
   const input =
-    "mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 text-sm outline-none focus:border-rose";
+    "mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 text-sm outline-none focus:border-rose";
 
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl space-y-6">
@@ -179,7 +179,7 @@ export function ProductForm({ productId }: Props) {
       </div>
 
       {/* Precios */}
-      <div className="rounded-2xl bg-white p-5 ring-1 ring-sand">
+      <div className="rounded-2xl bg-surface p-5 ring-1 ring-sand">
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="block text-sm">
             <span className="font-medium">Precio regular (S/)</span>
@@ -219,7 +219,7 @@ export function ProductForm({ productId }: Props) {
       </div>
 
       {/* Tallas y stock */}
-      <div className="rounded-2xl bg-white p-5 ring-1 ring-sand">
+      <div className="rounded-2xl bg-surface p-5 ring-1 ring-sand">
         <p className="text-sm font-medium">Tallas y stock</p>
         <div className="mt-3 space-y-2">
           {variants.map((v, i) => (
@@ -272,7 +272,7 @@ export function ProductForm({ productId }: Props) {
       </div>
 
       {/* Fotos */}
-      <div className="rounded-2xl bg-white p-5 ring-1 ring-sand">
+      <div className="rounded-2xl bg-surface p-5 ring-1 ring-sand">
         <p className="text-sm font-medium">Fotos</p>
         <p className="mt-1 text-xs text-ink-soft">
           Por ahora se guardan en el servidor (repo). Al crecer, migrar a S3 o
@@ -290,7 +290,7 @@ export function ProductForm({ productId }: Props) {
               <button
                 type="button"
                 onClick={() => setPhotos(photos.filter((p) => p !== photo))}
-                className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-ink text-xs text-white"
+                className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-ink text-xs text-cream"
                 aria-label="Quitar foto"
               >
                 ✕
@@ -298,7 +298,7 @@ export function ProductForm({ productId }: Props) {
             </div>
           ))}
         </div>
-        <label className="mt-3 inline-block cursor-pointer rounded-xl bg-blush px-4 py-2 text-sm font-medium text-rose transition hover:bg-rose hover:text-white">
+        <label className="mt-3 inline-block cursor-pointer rounded-xl bg-blush px-4 py-2 text-sm font-medium text-rose transition hover:bg-rose hover:text-cream">
           {uploading ? "Subiendo..." : "Subir fotos"}
           <input
             type="file"
@@ -328,7 +328,7 @@ export function ProductForm({ productId }: Props) {
         <button
           type="submit"
           disabled={saving}
-          className="rounded-xl bg-rose px-6 py-3 font-semibold text-white transition hover:bg-rose-dark disabled:bg-sand disabled:text-ink-soft"
+          className="rounded-xl bg-rose px-6 py-3 font-semibold text-cream transition hover:bg-rose-dark disabled:bg-sand disabled:text-ink-soft"
         >
           {saving ? "Guardando..." : productId ? "Guardar cambios" : "Crear producto"}
         </button>

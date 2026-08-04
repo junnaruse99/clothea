@@ -55,7 +55,7 @@ export default function HomePage() {
       onClick={() => setSelected(slug)}
       className={`block w-full rounded-2xl px-4 py-2.5 text-left text-sm transition-all duration-300 ${
         selected === slug
-          ? "translate-x-1 bg-gradient-to-r from-rose to-terracotta font-semibold text-white shadow-md shadow-rose/20"
+          ? "translate-x-1 bg-gradient-to-r from-rose to-terracotta font-semibold text-cream shadow-md shadow-rose/20"
           : "text-ink-soft hover:translate-x-1 hover:bg-blush hover:text-rose"
       }`}
     >
@@ -118,7 +118,7 @@ export default function HomePage() {
           >
             <a
               href="#catalogo"
-              className="rounded-full bg-gradient-to-r from-rose to-lilac px-7 py-3 font-semibold text-white shadow-lg shadow-rose/25 transition hover:scale-105 hover:shadow-xl hover:shadow-rose/30 active:scale-95"
+              className="rounded-full bg-gradient-to-r from-rose to-lilac px-7 py-3 font-semibold text-cream shadow-lg shadow-rose/25 transition hover:scale-105 hover:shadow-xl hover:shadow-rose/30 active:scale-95"
             >
               Ver colección
             </a>
@@ -127,7 +127,7 @@ export default function HomePage() {
                 setOnlySale(true);
                 document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="rounded-full bg-white/80 px-7 py-3 font-semibold text-rose ring-1 ring-rose/30 backdrop-blur transition hover:scale-105 hover:bg-white active:scale-95"
+              className="rounded-full bg-surface/80 px-7 py-3 font-semibold text-rose ring-1 ring-rose/30 backdrop-blur transition hover:scale-105 hover:bg-surface active:scale-95"
             >
               ♥ Solo ofertas
             </button>
@@ -136,7 +136,7 @@ export default function HomePage() {
       </section>
 
       {/* Cinta marquee */}
-      <div className="overflow-hidden border-y border-sand bg-white/60 py-3 backdrop-blur">
+      <div className="overflow-hidden border-y border-sand bg-surface/60 py-3 backdrop-blur">
         <div className="animate-marquee flex w-max gap-10">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span
@@ -187,8 +187,8 @@ export default function HomePage() {
                   onClick={() => setSelected(slug)}
                   className={`whitespace-nowrap rounded-full px-4 py-2 text-sm transition-all ${
                     selected === slug
-                      ? "bg-gradient-to-r from-rose to-terracotta font-semibold text-white shadow-md shadow-rose/20"
-                      : "bg-white text-ink-soft ring-1 ring-sand"
+                      ? "bg-gradient-to-r from-rose to-terracotta font-semibold text-cream shadow-md shadow-rose/20"
+                      : "bg-surface text-ink-soft ring-1 ring-sand"
                   }`}
                 >
                   {label}
@@ -199,8 +199,8 @@ export default function HomePage() {
               onClick={() => setOnlySale(!onlySale)}
               className={`whitespace-nowrap rounded-full px-4 py-2 text-sm transition-all ${
                 onlySale
-                  ? "bg-lilac font-semibold text-white shadow-md shadow-lilac/20"
-                  : "bg-white text-ink-soft ring-1 ring-sand"
+                  ? "bg-lilac font-semibold text-cream shadow-md shadow-lilac/20"
+                  : "bg-surface text-ink-soft ring-1 ring-sand"
               }`}
             >
               ♥ Ofertas
@@ -221,7 +221,7 @@ export default function HomePage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar prendas..."
-              className="w-full rounded-full border border-sand bg-white px-4 py-2 text-sm outline-none transition focus:border-rose focus:shadow-md focus:shadow-rose/10 sm:w-64"
+              className="w-full rounded-full border border-sand bg-surface px-4 py-2 text-sm outline-none transition focus:border-rose focus:shadow-md focus:shadow-rose/10 sm:w-64"
             />
           </div>
 

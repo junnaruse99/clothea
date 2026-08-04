@@ -77,7 +77,7 @@ function OrderContent() {
       </div>
 
       <div className="relative mx-auto max-w-2xl px-4 py-12 sm:px-6">
-        <div className="animate-fade-up rounded-3xl bg-white/90 p-8 shadow-lg shadow-rose/10 ring-1 ring-sand backdrop-blur">
+        <div className="animate-fade-up rounded-3xl bg-surface/90 p-8 shadow-lg shadow-rose/10 ring-1 ring-sand backdrop-blur">
           <div className="text-center">
             <div className="animate-heartbeat mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blush to-lilac-soft text-3xl">
               {order.status === "paid" ? "🎀" : "⏳"}
@@ -130,7 +130,7 @@ function OrderContent() {
 
         {/* Club Hanae Atelier: cartera de clientes para campañas */}
         <div
-          className="animate-fade-up mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-blush via-white to-lilac-soft p-8 shadow-lg shadow-lilac/10 ring-1 ring-sand"
+          className="animate-fade-up mt-6 overflow-hidden rounded-3xl bg-gradient-to-br from-blush via-surface to-lilac-soft p-8 shadow-lg shadow-lilac/10 ring-1 ring-sand"
           style={{ animationDelay: "0.2s" }}
         >
           {clubStatus === "done" ? (
@@ -168,7 +168,7 @@ function OrderContent() {
                     type="date"
                     value={birthday}
                     onChange={(e) => setBirthday(e.target.value)}
-                    className="mt-1 w-full rounded-xl border border-sand bg-white px-4 py-2.5 outline-none transition focus:border-rose sm:w-60"
+                    className="mt-1 w-full rounded-xl border border-sand bg-surface px-4 py-2.5 outline-none transition focus:border-rose sm:w-60"
                   />
                 </label>
                 <label className="flex cursor-pointer items-start gap-2 text-sm text-ink-soft">
@@ -184,7 +184,7 @@ function OrderContent() {
                 <button
                   type="submit"
                   disabled={!wantsPromos || clubStatus === "sending"}
-                  className="w-full rounded-full bg-gradient-to-r from-rose to-lilac py-3 font-semibold text-white shadow-md shadow-rose/20 transition hover:scale-[1.02] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-8"
+                  className="w-full rounded-full bg-gradient-to-r from-rose to-lilac py-3 font-semibold text-cream shadow-md shadow-rose/20 transition hover:scale-[1.02] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:px-8"
                 >
                   {clubStatus === "sending" ? "Registrando..." : "Unirme al club ♥"}
                 </button>
@@ -195,7 +195,7 @@ function OrderContent() {
 
         <Link
           href="/"
-          className="animate-fade-up mt-6 block rounded-full bg-white py-3 text-center font-semibold text-rose ring-1 ring-rose/30 transition hover:bg-blush"
+          className="animate-fade-up mt-6 block rounded-full bg-surface py-3 text-center font-semibold text-rose ring-1 ring-rose/30 transition hover:bg-blush"
           style={{ animationDelay: "0.35s" }}
         >
           Seguir comprando

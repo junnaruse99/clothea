@@ -57,12 +57,12 @@ export function AdminGate({ children }: { children: ReactNode }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Clave de administrador"
-            className="w-full rounded-xl border border-sand bg-white px-4 py-3 outline-none focus:border-rose"
+            className="w-full rounded-xl border border-sand bg-surface px-4 py-3 outline-none focus:border-rose"
           />
           {error && <p className="text-sm text-rose">{error}</p>}
           <button
             type="submit"
-            className="w-full rounded-xl bg-rose py-3 font-semibold text-white transition hover:bg-rose-dark"
+            className="w-full rounded-xl bg-rose py-3 font-semibold text-cream transition hover:bg-rose-dark"
           >
             Ingresar
           </button>

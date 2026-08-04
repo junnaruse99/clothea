@@ -64,7 +64,7 @@ export default function NosotrosPage() {
         ].map((item, i) => (
           <div
             key={item.title}
-            className="animate-fade-up rounded-3xl bg-white p-6 text-center shadow-sm ring-1 ring-sand transition hover:-translate-y-1 hover:shadow-lg hover:shadow-rose/10"
+            className="animate-fade-up rounded-3xl bg-surface p-6 text-center shadow-sm ring-1 ring-sand transition hover:-translate-y-1 hover:shadow-lg hover:shadow-rose/10"
             style={{ animationDelay: `${0.2 + i * 0.15}s` }}
           >
             <span className="text-2xl text-rose">{item.icon}</span>
