@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eee9e4"/>
+      <stop offset="1" stop-color="#c9beb6"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <circle cx="300" cy="340" r="210" fill="rgba(255,255,255,0.16)"/>
+  <circle cx="490" cy="120" r="90" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="90" cy="640" r="120" fill="rgba(255,255,255,0.12)"/>
+  <text x="88" y="120" font-family="Georgia, serif" font-size="26" fill="rgba(255,255,255,0.55)">&#10047;</text>
+  <text x="500" y="620" font-family="Georgia, serif" font-size="20" fill="rgba(255,255,255,0.45)">&#10022;</text>
+  <path d="M265 220 l35 30 35 -30 45 25 -25 60 -15 -8 0 150 c-30 12 -80 12 -110 0 l0 -150 -15 8 -25 -60 z" fill="rgba(255,255,255,0.5)"/>
+  <text x="300" y="700" font-family="Georgia, serif" font-size="34" font-style="italic" text-anchor="middle" fill="#7a6a63">Blusa Blanca</text>
+  <text x="300" y="745" font-family="Georgia, serif" font-size="18" letter-spacing="6" text-anchor="middle" fill="#7a6a63" opacity="0.75">HANAE ATELIER</text>
+</svg>
